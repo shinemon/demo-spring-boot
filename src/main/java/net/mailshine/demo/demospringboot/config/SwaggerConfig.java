@@ -32,10 +32,9 @@ public class SwaggerConfig {
         return new ApiInfo(
                 "Demo SpringBoot",
                 "This Api is for demo purpose",
-                "0.0.1",
-                "Terms of Service",
-                new Contact("mailShine", "na",
-                        "na"), "na", "na", Collections.<VendorExtension>emptyList()
+                null,
+                null,
+                null, null , null
         );
     }
 
