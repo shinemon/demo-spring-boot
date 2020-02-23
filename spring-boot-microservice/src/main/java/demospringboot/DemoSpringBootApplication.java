@@ -1,4 +1,4 @@
-package net.mailshine.demo.demospringboot;
+package demospringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
