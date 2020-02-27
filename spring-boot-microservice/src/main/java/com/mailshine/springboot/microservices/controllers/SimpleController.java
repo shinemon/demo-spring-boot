@@ -1,6 +1,6 @@
-package com.mailshine.springboot.microservice.demospringboot.controllers;
+package com.mailshine.springboot.microservices.controllers;
 
-import com.mailshine.springboot.microservice.demospringboot.models.Employee;
+import com.mailshine.springboot.microservices.models.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

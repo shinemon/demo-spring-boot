@@ -1,4 +1,4 @@
-package com.mailshine.springboot.microservice.demospringboot;
+package com.mailshine.springboot.microservices;
 
 import org.junit.Test;
 
