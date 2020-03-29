@@ -1,1 +1,12 @@
 jms:
+messagingIbmQueueName:
+appName: shine_demo
+messagingIbmSslProtocol: TLS
+messagingIbmKeyStoreType: JKS
+messagingIbmKeyStoreLocation:
+messagingIbmKeyStoreCode:
+messagingIbmHostName:
+messagingIbmQueueManager:
+messagingIbmPort:
+messagingIbmChannel:
+messagingIbmCipherSuite:
