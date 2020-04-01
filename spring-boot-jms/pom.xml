@@ -15,7 +15,7 @@
     <groupId>com.mailshine.demo.jms</groupId>
     <artifactId>spring-boot-jms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-kafka</name>
+    <name>spring-boot-jms</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
