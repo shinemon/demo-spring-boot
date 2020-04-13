@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,9 @@ public class WebfluxController {
 
     @GetMapping("/stream/notification")
     public Flux<String> streamString(){
-    //todo
-        return null;
+        return Flux.fromStream(stringList().stream())
+                .map(s -> String.valueOf(s))
+                .delayElements(Duration.ofSeconds(5));
     }
 
 
