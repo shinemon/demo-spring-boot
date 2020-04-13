@@ -18,7 +18,7 @@ public class WebfluxController {
     public Flux<String> streamString(){
         return Flux.fromStream(stringList().stream())
                 .map(s -> String.valueOf(s))
-                .delayElements(Duration.ofSeconds(5));
+                .delayElements(Duration.ofSeconds(1));
     }
 
 
