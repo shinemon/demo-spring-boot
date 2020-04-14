@@ -10,6 +10,8 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mailshine.springboot.webflux.NotificationSample.stringList;
+
 @RestController
 @RequestMapping("/api")
 public class WebfluxController {
@@ -22,18 +24,5 @@ public class WebfluxController {
     }
 
 
-    private static List<String> stringList(){
-        List<String> stringList = new ArrayList<>();
-        stringList.add("Demo String One");
-        stringList.add("Demo String Two");
-        stringList.add("Demo String Three");
-        stringList.add("Demo String Four");
-        stringList.add("Demo String Five");
-        stringList.add("Demo String Six");
-        stringList.add("Demo String Seven");
-        stringList.add("Demo String Eight");
-        stringList.add("Demo String Nine");
-        stringList.add("Demo String Ten");
-        return stringList;
-    }
+
 }
