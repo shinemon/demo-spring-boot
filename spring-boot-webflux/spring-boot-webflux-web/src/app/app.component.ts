@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'spring-boot-webflux-web';
+  title = 'spring-boot-com.mailshine.springboot.webflux-web';
 }

@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('spring-boot-webflux-web app is running!');
+    expect(page.getTitleText()).toEqual('spring-boot-com.mailshine.springboot.webflux-web app is running!');
   });
 
   afterEach(async () => {
