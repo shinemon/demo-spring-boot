@@ -7,11 +7,13 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 @Slf4j
+@ConditionalOnExpression("${aspect.enabled:true}")
 public class ExecutionTimeAdvice {
 
     @Around("@annotation(com.mailshine.springboot.aop.aspectj.advise.TrackExecutionTime)")
