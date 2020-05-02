@@ -6,7 +6,7 @@
     <groupId>com.mailshine.springboot</groupId>
     <artifactId>spring-boot-mutation-sample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -61,6 +61,11 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -76,10 +81,10 @@
                 <version>1.5.1</version>
                 <configuration>
                     <targetClasses>
-                        <param>com.mailshine.springboot.mutation.*</param>
+                        <param>com.mailshine.springboot.mutation.service.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>com.mailshine.springboot.mutation.*</param>
+                        <param>com.mailshine.springboot.mutation.service.*</param>
                     </targetTests>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
