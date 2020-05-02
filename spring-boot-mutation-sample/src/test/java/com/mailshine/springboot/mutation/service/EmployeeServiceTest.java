@@ -16,5 +16,6 @@ public class EmployeeServiceTest {
     public void EmployeServiceTest1(){
        String result = employeeService.getEmployeeNameFromId("Test");
        Assert.assertNotNull(result);
+       Assert.assertEquals("Name of Employee: Test", result);
     }
 }
