@@ -10,7 +10,7 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 
 @Configuration
 @Slf4j
-public class MQConfig {
+public class MQListenerConfig {
 
     @Bean
     public ActiveMQConnectionFactory consumerActiveMQConnectionFactory(){
