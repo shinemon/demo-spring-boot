@@ -25,6 +25,7 @@ public class ActiveMQConfig {
     public JmsTemplate jmsTemplate(){
         JmsTemplate jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(connectionFactory());
+        jmsTemplate.setPubSubDomain(true);  // enable for Pub Sub to topic
         return jmsTemplate;
     }
 }
