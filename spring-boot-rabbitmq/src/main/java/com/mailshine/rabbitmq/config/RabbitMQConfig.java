@@ -20,10 +20,10 @@ public class RabbitMQConfig {
     @Value("${queue}")
     private String queueName;
 
-    @Value(("${exchangeName}"))
+    @Value(("${exchange.name}"))
     private String exchangeName;
 
-    @Value("${routingKey}")
+    @Value("${routing.key}")
     private String routngKey;
 
     @Bean
