@@ -17,9 +17,9 @@ public class MessageController {
 
     @PostMapping(value = "/api/send/student/info")
     public String sendStudentData(@RequestBody Student student){
+        log.info("Attempting send message to RabbitMQService");
 
         rabbitMQService.sendMessage(student);
         return "Sent Message";
     }
-
 }
