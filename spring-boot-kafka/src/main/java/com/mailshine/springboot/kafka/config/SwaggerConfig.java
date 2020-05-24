@@ -13,25 +13,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    @Bean
-    public Docket api(){
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("net.mailshine.demo.demospringboot"))
-                .paths(PathSelectors.any())
-                .build().apiInfo(apiInfo());
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .select()
+        .apis(RequestHandlerSelectors.basePackage("net.mailshine.springboot.kafka.controllers"))
+        .paths(PathSelectors.any())
+        .build()
+        .apiInfo(apiInfo());
+  }
 
-
-    }
-
-    private ApiInfo apiInfo() {
-        return new ApiInfo(
-                "Demo SpringBoot",
-                "This Api is for demo purpose",
-                null,
-                null,
-                null, null , null
-        );
-    }
-
+  private ApiInfo apiInfo() {
+    return new ApiInfo(
+        "Demo SpringBoot", "This Api is for demo purpose", null, null, null, null, null);
+  }
 }
