@@ -80,6 +80,7 @@
                         </goals>
                         <configuration>
                             <sourceDirectory>${project.basedir}/src/main/resources/avro</sourceDirectory>
+                            <outputDirectory>${project.build.directory}/generated/avro</outputDirectory>
                             <imports>
                                 <import>${project.basedir}/src/main/resources/avro/Student.avsc</import>
                             </imports>

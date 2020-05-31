@@ -9,7 +9,6 @@ import org.apache.avro.io.EncoderFactory;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.common.serialization.Serializer;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Map;
@@ -34,16 +33,16 @@ public class AvroSerializer<T extends SpecificRecordBase> implements Serializer<
         BinaryEncoder binaryEncoder =
                 EncoderFactory.get().binaryEncoder(byteArrayOutputStream, null);
 
-        DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<>();
+        DatumWriter<GenericRecord> datumWriter = new GenericDatumWriter<>(payload.getSchema());
         datumWriter.write(payload, binaryEncoder);
 
         binaryEncoder.flush();
         byteArrayOutputStream.close();
 
         bytes = byteArrayOutputStream.toByteArray();
-        log.debug("serialized payload='{}'", DatatypeConverter.printHexBinary(bytes));
+        //log.debug("serialized payload='{}'", DatatypeConverter.printHexBinary(bytes));
       }
-    } catch (IOException e) {
+    } catch (Exception e) {
       log.error("Unable to serialize payload ", e);
     }
 

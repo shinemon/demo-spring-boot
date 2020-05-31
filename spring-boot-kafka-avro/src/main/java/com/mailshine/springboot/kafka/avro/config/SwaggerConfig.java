@@ -16,8 +16,8 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
-        .select()
-        .apis(RequestHandlerSelectors.basePackage("com.mailshine.springboot.kafka.controllers"))
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("com.mailshine.springboot.kafka.avro.controller"))
         .paths(PathSelectors.any())
         .build()
         .apiInfo(apiInfo());
