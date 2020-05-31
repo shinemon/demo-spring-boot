@@ -20,8 +20,6 @@ public class KafkaAvroController {
 
     @PostMapping(value = "/send/avro/student/info")
     public String kafkaMessage(@RequestBody Student message) {
-
-        //Student students = Student.newBuilder().setStudentName("shine").setStudentId("129").setAge(25).build();
         producerService.sendMessage(message);
         return "Success";
     }

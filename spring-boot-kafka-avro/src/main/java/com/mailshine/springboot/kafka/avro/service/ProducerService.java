@@ -21,21 +21,19 @@ public class ProducerService {
     private KafkaTemplate<String, Student> kafkaTemplate;
 
     public void sendMessage(Student message) {
+        ListenableFuture<SendResult<String, Student>> future = kafkaTemplate.send(topicName, message);
+        future.addCallback(
+                new ListenableFutureCallback<SendResult<String, Student>>() {
+                    @Override
+                    public void onSuccess(SendResult<String, Student> result) {
+                        log.info(
+                                "Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset());
+                    }
 
-        ListenableFuture<SendResult<String, Student>> future =
-                kafkaTemplate.send(topicName, message);
-
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Student>>() {
-
-            @Override
-            public void onSuccess(SendResult<String, Student> result) {
-                log.info("Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset());
-            }
-
-            @Override
-            public void onFailure(Throwable ex) {
-                log.info("Unable to send message=[{}] due to : {}", message, ex.getMessage());
-            }
-        });
+                    @Override
+                    public void onFailure(Throwable ex) {
+                        log.info("Unable to send message=[{}] due to : {}", message, ex.getMessage());
+                    }
+                });
     }
 }
