@@ -1,9 +1,16 @@
 package com.mailshine.spring.hystrix.controller;
 
+import com.mailshine.spring.hystrix.exception.EmployeeNotFoundException;
+import com.mailshine.spring.hystrix.service.EmployeeService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -20,8 +27,29 @@ public class EmployeeController {
     @Qualifier(value = "hystrixRestTemplate")
     private RestTemplate hystrixRestTemplate;
 
-    @GetMapping("/employees/name")
-    public List<String> getEmployeesName() {
-        return Collections.singletonList("Test");
+    @Autowired
+    EmployeeService employeeService;
+
+    @GetMapping("/employee/name/{id}")
+    @HystrixCommand(fallbackMethod = "getDataFallBack", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
+    public String getEmployeeName(@PathVariable String id) {
+        ResponseEntity<String> s = null;
+        try {
+            s = hystrixRestTemplate.getForEntity("http://localhost:8080/api/sample/hystrix/employee/by/id/12", String.class);
+            return s.getBody();
+        } catch (Exception e) {
+            throw new EmployeeNotFoundException("Test");
+        }
+    }
+
+
+    @GetMapping("/employee/by/id/{id}")
+    public ResponseEntity<String> getEmployeesNameById(@PathVariable String id) throws EmployeeNotFoundException {
+        return ResponseEntity.ok(employeeService.getEmployees(id));
+    }
+
+    public String getDataFallBack(String id) {
+        return "Default Emp";
     }
 }
