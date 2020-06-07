@@ -30,9 +30,14 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    /**
+     * @param id
+     * @return employee name
+     * To induce Failure/OpenCircuit and Hystrix FallBack plz reduce timeoutInMilliseconds to lower value.
+     */
     @GetMapping("/employee/name/{id}")
     @HystrixCommand(fallbackMethod = "getDataFallBack", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")})
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
     public String getEmployeeName(@PathVariable String id) {
         ResponseEntity<String> responseEntity = null;
         try {
