@@ -32,12 +32,12 @@ public class EmployeeController {
 
     @GetMapping("/employee/name/{id}")
     @HystrixCommand(fallbackMethod = "getDataFallBack", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")})
     public String getEmployeeName(@PathVariable String id) {
-        ResponseEntity<String> s = null;
+        ResponseEntity<String> responseEntity = null;
         try {
-            s = hystrixRestTemplate.getForEntity("http://localhost:8080/api/sample/hystrix/employee/by/id/12", String.class);
-            return s.getBody();
+            responseEntity = hystrixRestTemplate.getForEntity("http://localhost:8080/api/sample/hystrix/employee/by/id/" + id, String.class);
+            return responseEntity.getBody();
         } catch (Exception e) {
             throw new EmployeeNotFoundException("Test");
         }
