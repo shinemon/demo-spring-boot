@@ -1,4 +1,4 @@
-package com.mailshine.springboot.mapstruct.dao.entity;
+package com.mailshine.springboot.mapstruct.dao.entity.sample1;
 
 
 import lombok.Data;
@@ -13,6 +13,8 @@ import java.util.UUID;
 @Getter
 @Setter
 public class Student implements Serializable {
+
+    private static final long serialVersionUID = 5165243234230734093L;
 
     private UUID id;
     private String studentId;

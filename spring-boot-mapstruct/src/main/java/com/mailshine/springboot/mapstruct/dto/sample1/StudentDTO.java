@@ -1,4 +1,4 @@
-package com.mailshine.springboot.mapstruct.dto;
+package com.mailshine.springboot.mapstruct.dto.sample1;
 
 import lombok.Getter;
 import lombok.Setter;

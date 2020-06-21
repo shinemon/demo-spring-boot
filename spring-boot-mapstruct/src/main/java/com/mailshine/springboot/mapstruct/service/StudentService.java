@@ -1,7 +1,7 @@
 package com.mailshine.springboot.mapstruct.service;
 
-import com.mailshine.springboot.mapstruct.dao.entity.Student;
-import com.mailshine.springboot.mapstruct.dto.StudentDTO;
+import com.mailshine.springboot.mapstruct.dao.entity.sample1.Student;
+import com.mailshine.springboot.mapstruct.dto.sample1.StudentDTO;
 import com.mailshine.springboot.mapstruct.mappers.StudentMapper;
 import org.springframework.stereotype.Service;
 
