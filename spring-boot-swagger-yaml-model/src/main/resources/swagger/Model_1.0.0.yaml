@@ -1,0 +1,17 @@
+swagger: '2.0'
+
+info:
+  version: "1.0.0"
+  title: College Model
+
+definitions:
+  Course:
+    type: object
+    properties:
+      idenitifiers:
+        courseName:
+          type: string
+          description: Name of the Course
+        courseId:
+          type: string
+          description: Unique course identifier
