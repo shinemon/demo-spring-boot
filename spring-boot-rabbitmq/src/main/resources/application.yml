@@ -1,0 +1,11 @@
+exchange:
+    name: myExchange
+queue: myQueue
+routing:
+    key: myRoutingKey
+spring:
+    rabbitmq:
+        host: localhost
+        passowrd: guest
+        post: 5672
+        username: guest
