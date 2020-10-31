@@ -41,6 +41,7 @@ public class EmployeeController {
     public String getEmployeeName(@PathVariable String id) {
         ResponseEntity<String> responseEntity = null;
         try {
+            log.info("Processing getEmployeeName for Name: {}.", id);
             responseEntity = hystrixRestTemplate.getForEntity("http://localhost:8080/api/sample/hystrix/employee/by/id/" + id, String.class);
             return responseEntity.getBody();
         } catch (Exception e) {
@@ -51,6 +52,7 @@ public class EmployeeController {
 
     @GetMapping("/employee/by/id/{id}")
     public ResponseEntity<String> getEmployeesNameById(@PathVariable String id) throws EmployeeNotFoundException {
+        log.info("Processing getEmployeesNameById for ID: {}.", id);
         return ResponseEntity.ok(employeeService.getEmployees(id));
     }
 
