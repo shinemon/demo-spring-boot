@@ -8,10 +8,9 @@ definitions:
   Course:
     type: object
     properties:
-      idenitifiers:
-        courseName:
-          type: string
-          description: Name of the Course
-        courseId:
-          type: string
-          description: Unique course identifier
+      courseName:
+        type: string
+        description: Name of the Course
+      courseId:
+        type: string
+        description: Unique course identifier
