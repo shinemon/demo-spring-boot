@@ -88,17 +88,19 @@
                             <language>java</language>
                             <output>${project.basedir}</output>
 
-                            <apiPackage>com.mailshine.demo.api</apiPackage>
-                            <modelPackage>com.mailshine.demo.model</modelPackage>
+                            <!--
+                                                        <apiPackage>com.mailshine.swagger.yaml</apiPackage>
+                            -->
+                            <modelPackage>com.mailshine.swagger.yaml.model</modelPackage>
                             <generateApis>false</generateApis>
                             <generateApiTests>false</generateApiTests>
                             <generateApiDocumentation>false</generateApiDocumentation>
                             <generateSupportingFiles>false</generateSupportingFiles>
                             <generateModelDocumentation>false</generateModelDocumentation>
 
-                            <configOptions>
-                                <sourceFolder>src/main/gensrc</sourceFolder>
-                            </configOptions>
+                            <!--    <configOptions>
+                                    <sourceFolder>src/main/gensrc</sourceFolder>
+                                </configOptions>-->
                         </configuration>
                     </execution>
                 </executions>
